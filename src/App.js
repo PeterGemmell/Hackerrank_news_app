@@ -1,26 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import NewsContainer from './containers/NewsContainer';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component{
+  render(){
+    const articles = [
+      {name: "Latest Stories", url: "https://hacker-news.firebaseio.com/v0/topstories.json"},
+      {name: "Story Detail", url: "https://hacker-news.firebaseio.com/v0/item/{storyId}.json"}
+    ]
+
+    return(
+      <NewsContainer articles={articles}/>
+    );
+  }
 }
 
 export default App;
